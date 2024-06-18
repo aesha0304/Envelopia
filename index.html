@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envelopia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M459.477,121.6L272,270.582L52.523,121.6c-17.039-12.338-41.267,0.774-37.114,22.893l61.397,301.251c2.616,12.889,21.274,16.946,30.997,6.61l87.152-83.46l90.223,88.344c5.65,5.533,14.775,5.343,20.326-0.365l90.202-88.324l87.163,83.47c9.75,9.346,28.332,6.281,30.946-6.609l61.397-301.251C500.769,122.375,476.547,109.291,459.477,121.6z' fill='%23ffffff'/%3E%3C/svg%3E">
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('https://i.pinimg.com/originals/fe/15/d1/fe15d115e1458bfbcd8a43be9cec820f.jpg'); 
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+        h1, h2, p {
+            color: #f8f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .display-panel {
+            background: #222;
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow-y: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            color: #fff;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .navbar h1 {
+            font-size: 24px;
+        }
+
+        .navbar button {
+            margin-right: 10px;
+        }
+
+        .navbar button:last-child {
+            margin-right: 0;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #ff3333;
+            color: #fff;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #b30000;
+        }
+
+        footer {
+            background-color: #0a0a0a;
+            color: #6d6969;
+            padding: 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            color: #0a0a0a;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="email"],
+        input[type="text"],
+        textarea,
+        select {
+            width: calc(100% - 40px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #333;
+            color: #f87b7b;
+            outline: none;
+        }
+
+        input[type="email"]:focus,
+        input[type="text"]:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #ff3333;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .about-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .sent-items-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .sent-items-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sent-items-container li {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
+
+        .compose-form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+  <header class="navbar">
+    <h1>Envelopia</h1>
+    <div>
+        <button class="button" onclick="showAbout()">About</button>
+        <button class="button" onclick="composeEmail()">Compose</button>
+        <button class="button" onclick="showSent()">Sent</button>
+    </div>
+</header>
+
+<div class="container">
+    <div class="display-panel" id="content">
+        <h3>Welcome to Envelopia!</h3>
+    </div>
+</div>
+
+<footer>
+    Made By Sarah Syed, Aesha Parikh, Jash Upadhyay
+</footer>
+
+<script align="center">
+    document.getElementById("content").innerHTML = `
+        <div style="text-align: center;">
+            <h1 style="font-size: 36px;">WELCOME TO ENVELOPIA!</h1>
+            <br><br>
+            <img src="https://www.logo-design-studio.com/prod_images_large/envelope.png" alt="Envelopia Logo" style="max-width: 200px; height: auto;">
+            <p style="font-size: 18px;">We're glad to have you here.</p>
+            <p style="font-size: 18px;">Click on the buttons above to explore our features.</p>
+        </div>`;
+
+    function composeEmail() {
+        var composeForm = `
+            <div id="composeForm" class="compose-form">
+                <h2 style="text-align: center; color: #0a0a0a"><b>Compose Email</b></h2><br><br>
+                <form onsubmit="sendEmail(event)">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div style="flex-grow: 1; margin-right: 10px;">
+                            <label for="account">Select Account:</label>
+                            <select id="account" name="account" style="width: 100%;">
+                                <option value="gmail">Gmail</option>
+                                <option value="outlook">Outlook</option>
+                                <option value="yahoo">Yahoo</option>
+                            </select><br><br>
+                        </div>
+                        <div style="flex-grow: 1; margin-left: 10px;">
+                            <label for="to">To:</label>
+                            <input type="email" id="to" name="to" required style="width: 100%;"><br><br>
+                        </div>
+                    </div>
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required style="width: 100%;"><br><br>
+                    <label for="body">Body:</label><br>
+                    <textarea id="body" name="body" rows="6" required style="width: 100%;"></textarea><br><br>
+                    <!-- Add file input field -->
+                    <label for="attachments">Attach files:</label>
+                    <input type="file" id="attachments" name="attachments" multiple>
+                    <button class="file-upload-btn" onclick="document.getElementById('attachments').click()">Choose Files</button><br><br>
+                    <div style="text-align: center;">
+                        <button class="button" type="submit">Send</button>
+                        <button class="button" type="button" onclick="closeModal()">Cancel</button>
+                    </div>
+                </form>
+            </div>`;
+
+        var composeFormContainer = document.createElement('div');
+        composeFormContainer.innerHTML = composeForm;
+        composeFormContainer.style.maxWidth = '900px'; 
+        composeFormContainer.style.margin = 'auto'; 
+        composeFormContainer.style.padding = '20px'; 
+        composeFormContainer.style.borderRadius = '6px'; 
+        composeFormContainer.style.background = '#FFC0CB'; 
+        composeFormContainer.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)'; 
+
+        document.getElementById("content").innerHTML = ''; 
+        document.getElementById("content").appendChild(composeFormContainer);
+    }
+    function sendEmail(event) {
+    event.preventDefault();
+    const account = document.getElementById("account").value;
+    const to = document.getElementById("to").value;
+    const subject = document.getElementById("subject").value;
+    const body = document.getElementById("body").value;
+
+    const formData = new FormData();
+    formData.append("account", account);
+    formData.append("to", to);
+    formData.append("subject", subject);
+    formData.append("body", body);
+
+    const attachments = document.getElementById("attachments").files;
+    for (let i = 0; i < attachments.length; i++) {
+        formData.append("attachments", attachments[i]);
+    }
+
+    fetch('/send-email', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data); 
+        closeModal();
+    })
+    .catch(error => console.error('Error:', error));
+}
+    function closeModal() {
+        document.getElementById("composeForm").remove();
+    }
+
+    function showSent() {
+        fetch('/sent-emails')
+            .then(response => response.json())
+            .then(emails => {
+                let sentItemsHTML = "<h2>Sent Items</h2>";
+                if (emails.length > 0) {
+                    sentItemsHTML += "<ul>";
+                    emails.forEach(email => {
+                        sentItemsHTML += `<li><strong>From:</strong> ${email.username}, <strong>To:</strong> ${email.to}, <strong>Subject:</strong> ${email.subject}</li>`;
+                    });
+                    sentItemsHTML += "</ul>";
+                } else {
+                    sentItemsHTML += "<p>No sent emails found.</p>";
+                }
+                document.getElementById("content").innerHTML = sentItemsHTML;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    function showAbout() {
+        const aboutContent = `
+            <div class="about-container">
+                <h2>About Envelopia</h2><br><br>
+                <p>Envelopia is a cutting-edge email management platform designed to streamline your communication experience. With Envelopia, sending, receiving, and organizing emails has never been easier.</p>
+                <p>Our mission is to provide users with a seamless and efficient email solution that meets their diverse needs. Whether you're a busy professional, a student, or anyone in between, Envelopia is here to enhance your productivity and simplify your email workflow.</p>
+            </div>`;
+        document.getElementById("content").innerHTML = aboutContent;
+    }
+</script>
+</body>
+</html>
